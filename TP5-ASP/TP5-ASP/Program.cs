@@ -1,3 +1,4 @@
+using Microsoft.Extensions.FileProviders;
 using TP5_ASP.DataAccessLayer;
 
 namespace TP5_ASP
@@ -25,11 +26,24 @@ namespace TP5_ASP
             }
 
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
+            app.UseStaticFiles(); //
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "Areas\\Admin\\assets")),
+                RequestPath = new PathString("/Admin/assets")
+            });
 
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                  name: "areas",
+                  pattern: "{area:exists}/{controller=MenuChoice}/{action=Index}/{id?}"
+                );
+            });
 
             app.MapControllerRoute(
                 name: "default",
