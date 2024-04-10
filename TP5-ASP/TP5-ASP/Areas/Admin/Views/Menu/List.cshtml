@@ -1,0 +1,64 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model MenuListVM
+@{
+    ViewData["Title"] = "Tableau de bord";
+}
+
+<div id="dashboard-page">
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title">
+                <h2>ADMINISTRATION</h2>
+            </div>
+
+           Liste des choix de menu
+
+            <table class="table table-sm table-bordered table-striped table-hover">
+                <tr>
+                    <!--
+                    <th>Code</th>
+                    <th>Nom du produit</th>
+                    <th>Catégorie</th>
+                    <th>Quantité en stock</th>
+                    -->
+                    <!-- Permet d'utiliser l'attribut Display(Name="...") de propriété du modèle -->
+                    <!-- Permet de gérer l'affichage du modèle à un seul endroit -->
+
+                    <th>@Html.DisplayNameFor(model => model.Menus[0].Description)</th>
+                    <th>Actions</th>
+                </tr>
+                @if (Model.Menus.Count > 0)
+                {
+                    foreach (Menu menu in Model.Menus)
+                    {
+                        <tr>
+                            <!--
+                            <td>@*product.Code*@</td>
+                            <td>@*product.Name*@</td>
+                            <td>@*product.QuantityInStock*@</td>
+                            -->
+                            <!-- Génère le html selon les attributs de propriété du modèle. Comme par exemple, l'attribut DisplayFormat(...) -->
+                            <!-- Permet de gérer l'affichage du modèle à un seul endroit -->
+
+                            <td>@Html.DisplayFor(model => menu.Description)</td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@menu.Id">Éditer</a>
+                                <a asp-action="Delete" asp-route-id="@menu.Id">Supprimer</a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="5">Aucune catégorie trouvée.</td>
+                    </tr>
+                }
+            </table>
+
+            <p><a asp-action="Create">Ajouter un choix Menu</a></p>
+        </div>
+    </div>
+</div>

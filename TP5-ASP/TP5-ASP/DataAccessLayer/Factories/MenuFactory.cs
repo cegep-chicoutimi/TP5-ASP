@@ -5,6 +5,11 @@ namespace TP5_ASP.DataAccessLayer.Factories
 {
     public class MenuFactory
     {
+        /// <summary>
+        /// Obternir une catégorie à la suite d'une requête SQL à la BD
+        /// </summary>
+        /// <param name="mySqlDataReader"></param>
+        /// <returns></returns>
         private Menu CreateFromReader(MySqlDataReader mySqlDataReader)
         {
             int id = (int)mySqlDataReader["Id"];
@@ -13,6 +18,15 @@ namespace TP5_ASP.DataAccessLayer.Factories
 
             return new Menu(id, description);
 
+        }
+
+        /// <summary>
+        /// Retourner une objet Menu par défaut
+        /// </summary>
+        /// <returns></returns>
+        public Menu CreateEmpty()
+        {
+            return new Menu(0, "description de Menu par défaut !");
         }
 
       public List<Menu> GetAll()

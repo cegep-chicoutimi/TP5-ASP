@@ -41,7 +41,7 @@ namespace TP5_ASP
             {
                 endpoints.MapControllerRoute(
                   name: "areas",
-                  pattern: "{area:exists}/{controller=MenuChoice}/{action=Index}/{id?}"
+                  pattern: "{area:exists}/{controller=MenuChoice}/{action=List}/{id?}"
                 );
             });
 
