@@ -1,0 +1,49 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model ReservationListVM
+@{
+    ViewData["Title"] = "Liste des reservations";
+}
+
+<div id="categroy-list-page">
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title">
+                <h2>Liste des reservations</h2>
+            </div>
+
+            <table class="table table-sm table-bordered table-striped table-hover">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Reservations[0].DateReservation)</th>
+                    <th>@Html.DisplayNameFor(model => model.Reservations[0].Nom)</th>
+                    <th>@Html.DisplayNameFor(model => model.Reservations[0].MenuChoiceId)</th>
+                    <th>Actions</th>
+                </tr>
+                @if (Model.Reservations.Count > 0)
+                {
+                    foreach (Reservation reservation in Model.Reservations)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(model => reservation.DateReservation)</td>
+                            <td>@Html.DisplayFor(model => reservation.Nom)</td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@reservation.Id">Éditer</a>
+                                <a asp-action="Delete" asp-route-id="@reservation.Id">Supprimer</a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="5">Aucune catégorie trouvée.</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>
+

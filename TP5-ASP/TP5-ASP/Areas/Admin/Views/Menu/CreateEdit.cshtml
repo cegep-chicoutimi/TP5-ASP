@@ -1,0 +1,53 @@
+﻿@model Menu
+@{
+    string textAction = "Ajouter";
+    string formAction = "Create";
+
+    if (Model.Id > 0)
+    {
+        textAction = "Modifier";
+        formAction = "Edit";
+    }
+
+    ViewData["Title"] = textAction + "un choix de menu";
+}
+
+<div id="product-createedit-page">
+    <div class="row">
+        <div class="offset-md-1 offset-lg-2 col-md-10 col-lg-8">
+            <div class="page-title">
+                <h2>@textAction un choix de menu</h2>
+            </div>
+
+            <div class="form-section">
+                <form asp-action="@formAction">
+                    <input type="hidden" asp-for="Id" /> @*Pas besoin de l'afficher il sera passé dans l'url*@
+
+                    <div class="form-horizontal">
+                        <hr />
+                        <div class="form-group row">
+                            <label asp-for="Description" class="col-form-label col-md-3"></label>
+                            <div class="col-md-9">
+                                <input asp-for="Description" class="form-control" />
+                                <span asp-validation-for="Description" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <hr />
+                    </div>
+                    <div class="text-center">
+                        <input type="submit" value="@textAction" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+            <div class="links">
+                <a asp-action="List">Retour à la liste des choix de menu</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

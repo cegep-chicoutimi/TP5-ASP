@@ -1,4 +1,6 @@
-﻿namespace TP5_ASP.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace TP5_ASP.Models
 {
     public class Reservation
     {
@@ -6,6 +8,8 @@
         public string Nom { get; set; } = String.Empty;
         public string Courriel { get; set; } = String.Empty;
         public int NbPersonne { get; set; }
+
+        [DisplayFormat(DataFormatString ="{0:d}")]
         public DateTime DateReservation { get; set; }
 
         public int MenuChoiceId { get; set; }   
