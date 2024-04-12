@@ -19,7 +19,9 @@
                 <tr>
                     <th>@Html.DisplayNameFor(model => model.Reservations[0].DateReservation)</th>
                     <th>@Html.DisplayNameFor(model => model.Reservations[0].Nom)</th>
+                    <th>@Html.DisplayNameFor(model => model.Reservations[0].Courriel)</th>
                     <th>@Html.DisplayNameFor(model => model.Reservations[0].MenuChoiceId)</th>
+                    <th>@Html.DisplayNameFor(model => model.Reservations[0].NbPersonne)</th>
                     <th>Actions</th>
                 </tr>
                 @if (Model.Reservations.Count > 0)
@@ -29,8 +31,10 @@
                         <tr>
                             <td>@Html.DisplayFor(model => reservation.DateReservation)</td>
                             <td>@Html.DisplayFor(model => reservation.Nom)</td>
+                            <td>@Html.DisplayFor(model => reservation.Courriel)</td>
+                            <td>@Model.GetMenuNameByReservation(reservation.MenuChoiceId)</td>
+                            <td>@Html.DisplayFor(model => reservation.NbPersonne)</td>
                             <td>
-                                <a asp-action="Edit" asp-route-id="@reservation.Id">Éditer</a>
                                 <a asp-action="Delete" asp-route-id="@reservation.Id">Supprimer</a>
                             </td>
                         </tr>

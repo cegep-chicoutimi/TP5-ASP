@@ -45,7 +45,7 @@ namespace TP5_ASP.DataAccessLayer.Factories
                 mySqlCnn.Open();
 
                 MySqlCommand mySqlCmd = mySqlCnn.CreateCommand();
-                mySqlCmd.CommandText = "SELECT * FROM h24_web_transac_2130331.tp5_menuchoices;";
+                mySqlCmd.CommandText = "SELECT * FROM tp5_menuchoices;";
 
                 mySqlDataReader = mySqlCmd.ExecuteReader();
                 while (mySqlDataReader.Read())
@@ -82,7 +82,7 @@ namespace TP5_ASP.DataAccessLayer.Factories
                 mySqlCnn.Open();
 
                 MySqlCommand mySqlCmd = mySqlCnn.CreateCommand();
-                mySqlCmd.CommandText = "SELECT * FROM h24_web_transac_2130331.tp5_menuchoices where Id = @Id";
+                mySqlCmd.CommandText = "SELECT * FROM tp5_menuchoices where Id = @Id";
 
                 mySqlCmd.Parameters.AddWithValue("@Id", id);
 
@@ -119,7 +119,7 @@ namespace TP5_ASP.DataAccessLayer.Factories
                 mySqlCnn.Open();
 
                 MySqlCommand mySqlCmd = mySqlCnn.CreateCommand();
-                mySqlCmd.CommandText = "SELECT * FROM h24_web_transac_2130331.tp5_menuchoices where Description = @Description";
+                mySqlCmd.CommandText = "SELECT * FROM tp5_menuchoices where Description = @Description";
                 mySqlCmd.Parameters.AddWithValue("@Description", description);
 
                 mySqlDataReader = mySqlCmd.ExecuteReader();
@@ -158,7 +158,7 @@ namespace TP5_ASP.DataAccessLayer.Factories
                 {
                     // On sait que c'est un nouveau choix de menu avec Id == 0,
                     // car c'est ce que nous avons affecter dans la fonction CreateEmpty().
-                    mySqlCmd.CommandText = "INSERT INTO `h24_web_transac_2130331`.`tp5_menuchoices` (`Description`) VALUES (@Description)";
+                    mySqlCmd.CommandText = "INSERT INTO `tp5_menuchoices` (`Description`) VALUES (@Description)";
                 }
                 else
                 {

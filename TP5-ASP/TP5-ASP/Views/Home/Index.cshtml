@@ -1,18 +1,79 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model ReservationCreateEditVM
+@{
+    string formAction = "Create";
+
+    if (Model.Reservation.Id > 0)
+    {
+        //textAction = "Modifier";
+        formAction = "Edit";
+    }
+
+    ViewData["Title"] = "Nouvelle reservation";
 }
 
-@*<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>*@
-
-<div id="home-page">
+<div id="product-createedit-page">
     <div class="row">
-        <div class="col-12">
+        <div class="offset-md-1 offset-lg-2 col-md-10 col-lg-8">
             <div class="page-title">
-                <h2>ici sera le contenu du TP5: la page d'accueil'</h2>
+                <h2>Votre reservation</h2>
+            </div>
+
+            <div class="form-section">
+                <form asp-action="@formAction">
+                    <input type="hidden" asp-for="Reservation.Id" /> @*Pas besoin de l'afficher il sera passé dans l'url*@
+
+                    <div class="form-horizontal">
+                        <hr />
+                        <div class="form-group row">
+                            <label asp-for="Reservation.Nom" class="col-form-label col-md-3"></label>
+                            <div class="col-md-9">
+                                <input asp-for="Reservation.Nom" class="form-control" />
+                                <span asp-validation-for="Reservation.Nom" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label asp-for="Reservation.Courriel" class="col-form-label col-md-3"></label>
+                            <div class="col-md-9">
+                                <input asp-for="Reservation.Courriel" class="form-control" />
+                                <span asp-validation-for="Reservation.Courriel" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label asp-for="Reservation.NbPersonne" class="col-form-label col-md-3"></label>
+                            <div class="col-md-9">
+                                <input asp-for="Reservation.NbPersonne" class="form-control" />
+                                <span asp-validation-for="Reservation.NbPersonne" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label asp-for="Reservation.DateReservation" class="col-form-label col-md-3"></label>
+                            <div class="col-md-9">
+                                <input asp-for="Reservation.DateReservation" class="form-control" />
+                                <span asp-validation-for="Reservation.DateReservation" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label asp-for="Reservation.MenuChoiceId" class="col-form-label col-md-3"></label>
+                            <div class="col-md-9">
+                                <select asp-for="Reservation.MenuChoiceId" asp-items="@(new SelectList(Model.Menus, "Id", "Description"))" class="form-control">
+                                    <option value="0"></option>
+                                </select>
+                                <span asp-validation-for="Reservation.MenuChoiceId" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <hr />
+                    </div>
+                    <div class="text-center">
+                        <input type="submit" value="Confirmer la reservation" class="btn btn-primary" />
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
