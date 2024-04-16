@@ -6,12 +6,18 @@
     ViewData["Title"] = "Tableau de bord";
 }
 
-<div id="dashboard-page">
+<div id="dashboard-page" class="container">
     <div class="row">
         <div class="col-12">
             <div class="page-title">
-                <h2> Liste des choix de menu</h2>
+                <h2>
+                    <i class="fas fa-list"></i>
+                    Liste des choix de menu
+                </h2>
             </div>
+    </div>
+
+    <div class="row">
 
             <table class="table table-sm table-bordered table-striped table-hover">
                 <tr>
@@ -24,7 +30,7 @@
                     <!-- Permet d'utiliser l'attribut Display(Name="...") de propriété du modèle -->
                     <!-- Permet de gérer l'affichage du modèle à un seul endroit -->
 
-                    <th>@Html.DisplayNameFor(model => model.Menus[0].Description)</th>
+                    <th class="description">@Html.DisplayNameFor(model => model.Menus[0].Description)</th>
                     <th>Actions</th>
                 </tr>
                 @if (Model.Menus.Count > 0)
@@ -40,10 +46,18 @@
                             <!-- Génère le html selon les attributs de propriété du modèle. Comme par exemple, l'attribut DisplayFormat(...) -->
                             <!-- Permet de gérer l'affichage du modèle à un seul endroit -->
 
-                            <td>@Html.DisplayFor(model => menu.Description)</td>
+                            <td class="description">@Html.DisplayFor(model => menu.Description)</td>
+
                             <td>
-                                <a asp-action="Edit" asp-route-id="@menu.Id">Éditer</a>
-                                <a asp-action="Delete" asp-route-id="@menu.Id">Supprimer</a>
+                                <a asp-action="Edit" asp-route-id="@menu.Id">
+                                    <span class="edit-icon" data-id="1" title="Modifier">
+                                        <i class="fas fa-edit"></i>
+                                </a>  |  
+                                <a asp-action="Delete" asp-route-id="@menu.Id">
+                                    <span class="delete-icon" data-id="1" title="Supprimer">
+                                        <i class="fas fa-trash"></i>
+                                    </span>
+                                </a>
                             </td>
                         </tr>
                     }
@@ -56,7 +70,15 @@
                 }
             </table>
 
-            <p><a asp-action="Create">Ajouter un choix Menu</a></p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+                <a asp-action="Create" class="btn btn-primary">Ajouter un choix Menu</a> 
+        </div>
+    </div>
+
+        @* <p><a asp-action="Create">Ajouter un choix Menu</a></p> *@
         </div>
     </div>
 </div>

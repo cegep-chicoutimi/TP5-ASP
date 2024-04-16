@@ -1,2 +1,9 @@
-﻿body {
+﻿.row {
+    margin: 2%;
+    text-align: center;
 }
+
+.description {
+    justify-content: flex-start;
+}
+   

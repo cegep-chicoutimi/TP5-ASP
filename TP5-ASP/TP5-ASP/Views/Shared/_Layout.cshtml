@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="~/css/site-bootstrap.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-
+  
     <!--
         Section qui permet d'ajouter du contenu dans <head> à partir d'une vue
         Voir la vue Contact/Index.cshtml pour un exemple.
@@ -21,7 +21,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="Admin" asp-controller="Menu" asp-action="List">ADMINISTRATION</a>
+                <a class="navbar-brand" asp-area="Admin" asp-controller="Home" asp-action="Index">ADMINISTRATION</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -30,10 +30,10 @@
                     
                     <ul class="navbar-nav flex-grow-1">  
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">LES CHOIX DE MENU</a> 
+                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="Menu" asp-action="List">LES CHOIX DE MENU</a> 
                         </li>
                          <li class="nav-item">
-                           <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">LES RESERVATIONS</a>
+                           <a class="nav-link text-dark" asp-area="Admin" asp-controller="Reservation" asp-action="List">LES RESERVATIONS</a>
                         </li>
                     </ul>
                 </div>
@@ -51,6 +51,9 @@
             ASP.NET MVC - @@Nelson YIMOU
         </div>
     </footer>
+
+    <!-- Placé à la fin du document pour un chargement plus rapide des pages -->
+    <!-- Ordre : jQuery, Popper.js, puis Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"></script>

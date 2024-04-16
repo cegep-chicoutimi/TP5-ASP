@@ -16,3 +16,14 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.row {
+    margin:2%;
+    text-align:center;
+}
+
+#ad {
+    color: blue;
+    font-size:20px;
+    font-style: italic;
+}

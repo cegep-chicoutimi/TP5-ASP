@@ -12,13 +12,18 @@
     ViewData["Title"] = textAction + "un choix de menu";
 }
 
-<div id="product-createedit-page">
+<div id="product-createedit-page" class="container-fluid">
     <div class="row">
         <div class="offset-md-1 offset-lg-2 col-md-10 col-lg-8">
             <div class="page-title">
-                <h2>@textAction un choix de menu</h2>
+                <h2>
+                    <i class="fas fa-list"></i> 
+                    @textAction un choix de menu
+                </h2>
             </div>
+    </div>
 
+        <div class="row">
             <div class="form-section">
                 <form asp-action="@formAction">
                     <input type="hidden" asp-for="Id" /> @*Pas besoin de l'afficher il sera passé dans l'url*@
@@ -39,9 +44,14 @@
                     </div>
                 </form>
             </div>
-            <div class="links">
+        </div>
+
+        <div class="row">
+            <div class=" col-md-12 links">
                 <a asp-action="List">Retour à la liste des choix de menu</a>
             </div>
+        </div>
+           
         </div>
     </div>
 </div>

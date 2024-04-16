@@ -39,12 +39,12 @@ namespace TP5_ASP.Areas.Admin.Controllers
             if(menu != null)
             {
                 DAL dal = new DAL();
-                Menu existingMenu = dal.MenuFact.Get(menu.Id);
+                Menu existingMenu = dal.MenuFact.GetByDescription(menu.Description);
 
                 //On vérifie d'abord si le choix de Menu recu par la vewModel n'existe pas déja dans la BD
                 if(existingMenu != null)
                 {
-                    ModelState.AddModelError("Menu.Id", "l'Id de ce choix de menu existe déja !");
+                    ModelState.AddModelError("Menu.Description", "Ce choix de menu existe déja !");
                 }
 
                 if(!ModelState.IsValid)

@@ -12,7 +12,10 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title">
-                <h2>Liste des reservations</h2>
+                <h2>
+                    <i class="fas fa-list"></i>
+                    Liste des reservations
+                </h2>
             </div>
 
             <table class="table table-sm table-bordered table-striped table-hover">
@@ -35,7 +38,11 @@
                             <td>@Model.GetMenuNameByReservation(reservation.MenuChoiceId)</td>
                             <td>@Html.DisplayFor(model => reservation.NbPersonne)</td>
                             <td>
-                                <a asp-action="Delete" asp-route-id="@reservation.Id">Supprimer</a>
+                                <a asp-action="Delete" asp-route-id="@reservation.Id">
+                                    <span class="delete-icon" data-id="1" title="Supprimer">
+                                    <i class="fas fa-trash"></i>
+                                    </span>
+                                </a>
                             </td>
                         </tr>
                     }

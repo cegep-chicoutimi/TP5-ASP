@@ -13,7 +13,8 @@ namespace TP5_ASP.DataAccessLayer.Factories
             string courriel = mySqlDataReader["Courriel"].ToString() ?? string.Empty;
 
             int nbPersonne = (int)mySqlDataReader["NbPersonne"];
-            DateOnly dateReservation = (DateOnly)mySqlDataReader["DateReservation"];
+            DateOnly dateReservation = DateOnly.FromDateTime((DateTime)mySqlDataReader["DateReservation"]);
+                
 
             int menuChoiceId = (int)mySqlDataReader["MenuChoiceId"];
 
