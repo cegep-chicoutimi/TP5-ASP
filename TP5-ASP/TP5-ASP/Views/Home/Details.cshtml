@@ -1,0 +1,69 @@
+﻿@model Reservation
+@{
+    string formAction = "Create";
+
+    ViewData["Title"] = "reservation success";
+}
+
+<div id="product-createedit-page">
+    <div class="row">
+        <div class="offset-md-1 offset-lg-2 col-md-10 col-lg-8">
+            <div class="page-title">
+                <h2>Reservation complétée avec succès !</h2>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <img src="~/img/details.jpg" alt="une image de reservation" />
+        </div>
+
+        <div class="col-lg-6" ">
+            <div class="offset-md-1 offset-lg-2 col-md-10 col-lg-8">
+                <div class="form-section">
+                    <hr />
+                    <div class="row details-row">
+                        <div class="col-sm-6">@Html.DisplayNameFor(model => model.Nom) : </div>
+                        <div class="col-sm-6">@Html.DisplayFor(model => model.Nom)</div>
+                    </div>
+                    <div class="row details-row">
+                        <div class="col-sm-6">@Html.DisplayNameFor(model => model.Courriel) : </div>
+                        <div class="col-sm-6">@Html.DisplayFor(model => model.Courriel)</div>
+                    </div>
+                    <div class="row details-row">
+                        <div class="col-sm-6">@Html.DisplayNameFor(model => model.NbPersonne) : </div>
+                        <div class="col-sm-6">@Html.DisplayFor(model => model.NbPersonne)</div>
+                    </div>
+                    <div class="row details-row">
+                        <div class="col-sm-6">@Html.DisplayNameFor(model => model.DateReservation) : </div>
+                        <div class="col-sm-6">@Html.DisplayFor(model => model.DateReservation)</div>
+                    </div>
+                    <div class="row details-row">
+                        <div class="col-sm-6">@Html.DisplayNameFor(model => model.MenuChoiceId) : </div>
+                        <div class="col-sm-6">@Html.DisplayFor(model => model.MenuChoiceId)</div>
+                    </div>
+
+                    <div class="row details-row">
+                        <div class="col-sm-6">
+                            <h5>Merci d'avoir utiliser notre module de reservation en ligne au plaisir de vous voir bientot</h5>
+                            <h4>L'équipe'</h4>
+                        </div>
+                    </div>
+                    <hr />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="links col-md-12">
+            <a asp-action="Index">Retour à la page d'accueil</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

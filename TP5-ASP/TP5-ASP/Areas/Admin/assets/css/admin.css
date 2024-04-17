@@ -14,4 +14,8 @@ footer .row {
 .description {
     justify-content: flex-start;
 }
+
+.label {
+    font-style:bold;
+}
    

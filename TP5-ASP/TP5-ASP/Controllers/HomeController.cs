@@ -30,9 +30,11 @@ namespace TP5_ASP.Controllers
                 //J'ai pas fair de vérification du genre "existing" comme dans les demo 
 
                 dal.ReservationFact.Save(viewModel.Reservation);
+
+                //Le model qui sera utilie à la vue "Details"
             }
 
-            return RedirectToAction("Index");
+            return View("Details", viewModel.Reservation);
         }
 
 

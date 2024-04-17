@@ -17,57 +17,62 @@
             <div class="page-title">
                 <h2>Votre reservation</h2>
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <img src="~/img/OIP.jpg" alt="une image de reservation"/>
+        </div>
 
-            <div class="form-section">
-                <form asp-action="@formAction">
-                    <input type="hidden" asp-for="Reservation.Id" /> @*Pas besoin de l'afficher il sera passé dans l'url*@
+        <div class="form-section col-lg-6">
+            <form asp-action="@formAction">
+                <input type="hidden" asp-for="Reservation.Id" /> @*Pas besoin de l'afficher il sera passé dans l'url*@
 
-                    <div class="form-horizontal">
-                        <hr />
-                        <div class="form-group row">
-                            <label asp-for="Reservation.Nom" class="col-form-label col-md-3"></label>
-                            <div class="col-md-9">
-                                <input asp-for="Reservation.Nom" class="form-control" />
-                                <span asp-validation-for="Reservation.Nom" class="text-danger"></span>
-                            </div>
+                <div class="form-horizontal">
+                    <hr />
+                    <div class="form-group row">
+                        <label asp-for="Reservation.Nom" class="col-form-label col-md-3"></label>
+                        <div class="col-md-9">
+                            <input asp-for="Reservation.Nom" class="form-control" />
+                            <span asp-validation-for="Reservation.Nom" class="text-danger"></span>
                         </div>
-                        <div class="form-group row">
-                            <label asp-for="Reservation.Courriel" class="col-form-label col-md-3"></label>
-                            <div class="col-md-9">
-                                <input asp-for="Reservation.Courriel" class="form-control" />
-                                <span asp-validation-for="Reservation.Courriel" class="text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label asp-for="Reservation.NbPersonne" class="col-form-label col-md-3"></label>
-                            <div class="col-md-9">
-                                <input asp-for="Reservation.NbPersonne" class="form-control" />
-                                <span asp-validation-for="Reservation.NbPersonne" class="text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label asp-for="Reservation.DateReservation" class="col-form-label col-md-3"></label>
-                            <div class="col-md-9">
-                                <input asp-for="Reservation.DateReservation" class="form-control" />
-                                <span asp-validation-for="Reservation.DateReservation" class="text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label asp-for="Reservation.MenuChoiceId" class="col-form-label col-md-3"></label>
-                            <div class="col-md-9">
-                                <select asp-for="Reservation.MenuChoiceId" asp-items="@(new SelectList(Model.Menus, "Id", "Description"))" class="form-control">
-                                    <option value="0"></option>
-                                </select>
-                                <span asp-validation-for="Reservation.MenuChoiceId" class="text-danger"></span>
-                            </div>
-                        </div>
-                        <hr />
                     </div>
-                    <div class="text-center">
-                        <input type="submit" value="Confirmer la reservation" class="btn btn-primary" />
+                    <div class="form-group row">
+                        <label asp-for="Reservation.Courriel" class="col-form-label col-md-3"></label>
+                        <div class="col-md-9">
+                            <input type="email" asp-for="Reservation.Courriel" class="form-control" />
+                            <span asp-validation-for="Reservation.Courriel" class="text-danger"></span>
+                        </div>
                     </div>
-                </form>
-            </div>
+                    <div class="form-group row">
+                        <label asp-for="Reservation.NbPersonne" class="col-form-label col-md-3"></label>
+                        <div class="col-md-9">
+                            <input asp-for="Reservation.NbPersonne" class="form-control" />
+                            <span asp-validation-for="Reservation.NbPersonne" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="Reservation.DateReservation" class="col-form-label col-md-3"></label>
+                        <div class="col-md-9">
+                            <input asp-for="Reservation.DateReservation" class="form-control" />
+                            <span asp-validation-for="Reservation.DateReservation" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="Reservation.MenuChoiceId" class="col-form-label col-md-3"></label>
+                        <div class="col-md-9">
+                            <select asp-for="Reservation.MenuChoiceId" asp-items="@(new SelectList(Model.Menus, "Id", "Description"))" class="form-control">
+                                <option value="0"></option>
+                            </select>
+                            <span asp-validation-for="Reservation.MenuChoiceId" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <hr />
+                </div>
+                <div class="text-center">
+                    <input type="submit" value="Confirmer la reservation" class="btn btn-primary" />
+                </div>
+            </form>
         </div>
     </div>
 </div>
