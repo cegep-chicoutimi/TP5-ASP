@@ -1,4 +1,12 @@
-﻿.row {
+﻿nav {
+    margin-bottom: 2%;
+}
+
+footer .row {
+    text-align: center;
+}
+
+.row {
     margin: 2%;
     text-align: center;
 }

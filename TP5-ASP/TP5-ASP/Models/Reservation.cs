@@ -21,7 +21,7 @@ namespace TP5_ASP.Models
         [Display(Name = "Date")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "La date est requise.")]
         [DisplayFormat(DataFormatString ="{0:d}")]
-        public DateOnly? DateReservation { get; set; }
+        public DateTime DateReservation { get; set; }
 
         [Display(Name = "Choix de menu")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Le choix de menu est requis.")]
@@ -32,7 +32,7 @@ namespace TP5_ASP.Models
         {
         }
 
-        public Reservation(int id, string nom, string courriel, int nbPersonne, DateOnly dateReservation, int menuChoiceId)
+        public Reservation(int id, string nom, string courriel, int nbPersonne, DateTime dateReservation, int menuChoiceId)
         {
             Id = id;
             Nom = nom;

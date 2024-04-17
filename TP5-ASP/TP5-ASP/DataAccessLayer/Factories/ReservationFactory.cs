@@ -13,12 +13,15 @@ namespace TP5_ASP.DataAccessLayer.Factories
             string courriel = mySqlDataReader["Courriel"].ToString() ?? string.Empty;
 
             int nbPersonne = (int)mySqlDataReader["NbPersonne"];
-            DateOnly dateReservation = DateOnly.FromDateTime((DateTime)mySqlDataReader["DateReservation"]);
+            DateTime dateReservation = DateTime.Now;
+
+            if (mySqlDataReader["DateReservation"] != DBNull.Value)
+                dateReservation = (DateTime)mySqlDataReader["DateReservation"];
                 
 
             int menuChoiceId = (int)mySqlDataReader["MenuChoiceId"];
 
-            return new Reservation(id, nom, courriel, nbPersonne, dateReservation, menuChoiceId);
+            return new Reservation(id, nom, courriel, nbPersonne, dateReservation, menuChoiceId); 
         }
 
         /// <summary>
@@ -27,7 +30,7 @@ namespace TP5_ASP.DataAccessLayer.Factories
         /// <returns></returns>
         public Reservation CreateEmpty()
         {
-            return new Reservation(0, string.Empty, string.Empty, 0, DateOnly.MinValue, 0);
+            return new Reservation(0, string.Empty, string.Empty, 0, DateTime.Now, 0);
         }
 
         public List<Reservation> GetAll()
