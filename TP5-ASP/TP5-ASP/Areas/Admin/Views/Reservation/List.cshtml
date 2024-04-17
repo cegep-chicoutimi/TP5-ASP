@@ -22,10 +22,10 @@
                 <tr>
                     <th>@Html.DisplayNameFor(model => model.Reservations[0].DateReservation)</th>
                     <th>@Html.DisplayNameFor(model => model.Reservations[0].Nom)</th>
-                    <th>@Html.DisplayNameFor(model => model.Reservations[0].Courriel)</th>
+                    <th class="d-none d-sm-none d-md-table-cell">@Html.DisplayNameFor(model => model.Reservations[0].Courriel)</th>
                     <th>@Html.DisplayNameFor(model => model.Reservations[0].MenuChoiceId)</th>
                     <th>@Html.DisplayNameFor(model => model.Reservations[0].NbPersonne)</th>
-                    <th>Actions</th>
+                    <th class="d-none d-xs-none d-sm-table-cell">Actions</th>
                 </tr>
                 @if (Model.Reservations.Count > 0)
                 {
@@ -34,9 +34,9 @@
                         <tr>
                             <td>@Html.DisplayFor(model => reservation.DateReservation)</td>
                             <td>@Html.DisplayFor(model => reservation.Nom)</td>
-                            <td>@Html.DisplayFor(model => reservation.Courriel)</td>
+                            <td class="d-none d-sm-none d-md-table-cell">@Html.DisplayFor(model => reservation.Courriel)</td>
                             <td>@Model.GetMenuNameByReservation(reservation.MenuChoiceId)</td>
-                            <td>@Html.DisplayFor(model => reservation.NbPersonne)</td>
+                            <td>@Html.DisplayFor(model => reservation.NbPersonne) pers.</td>
                             <td>
                                 <a asp-action="Delete" asp-route-id="@reservation.Id">
                                     <span class="delete-icon" data-id="1" title="Supprimer">

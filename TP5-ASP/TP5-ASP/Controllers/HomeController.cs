@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using TP5_ASP.ViewModels;
 using TP5_ASP.DataAccessLayer;
 using TP5_ASP.Models;
 using TP5_ASP.ViewModels;
@@ -27,14 +28,23 @@ namespace TP5_ASP.Controllers
             {
                 DAL dal = new DAL();
 
-                //J'ai pas fair de vérification du genre "existing" comme dans les demo 
+                //J'ai fait des vérifications du genre "existing" comme dans les demo 
+                Reservation existingReservation = dal.ReservationFact.Get(viewModel.Reservation.Id);
 
-                dal.ReservationFact.Save(viewModel.Reservation);
+                if(existingReservation == null)
+                {
+                    dal.ReservationFact.Save(viewModel.Reservation);
 
-                //Le model qui sera utilie à la vue "Details"
+                    return RedirectToAction("Details", "Reservation", new {Id = viewModel.Reservation.Id});
+                }
+                else
+                {
+                    return View("AdminMessage", new AdminMessageVM("Cette reservation existe déja !"));
+                }           
             }
 
-            return View("Details", viewModel.Reservation);
+            return View("AdminMessage", new AdminMessageVM("Cette reservation est inexistante !"));
+
         }
 
 

@@ -21,7 +21,7 @@
     </div>
     <div class="row">
         <div class="col-lg-6">
-            <img src="~/img/OIP.jpg" alt="une image de reservation"/>
+            <img class="d-none d-xs-none d-sm-table-cell" src="~/img/OIP.jpg" alt="une image de reservation" />
         </div>
 
         <div class="form-section col-lg-6">
@@ -54,7 +54,7 @@
                     <div class="form-group row">
                         <label asp-for="Reservation.DateReservation" class="col-form-label col-md-3"></label>
                         <div class="col-md-9">
-                            <input asp-for="Reservation.DateReservation" class="form-control" />
+                            <input asp-for="Reservation.DateReservation" class="form-control" id="datepicker" />
                             <span asp-validation-for="Reservation.DateReservation" class="text-danger"></span>
                         </div>
                     </div>

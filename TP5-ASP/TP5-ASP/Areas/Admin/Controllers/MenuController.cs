@@ -8,11 +8,6 @@ namespace TP5_ASP.Areas.Admin.Controllers
     [Area("Admin")]
     public class MenuController : Controller
     {
-        //public IActionResult Index()
-        //{
-        //    return View();
-        //}
-
         public IActionResult List()
         {
             DAL dal = new DAL();
@@ -45,6 +40,7 @@ namespace TP5_ASP.Areas.Admin.Controllers
                 if(existingMenu != null)
                 {
                     ModelState.AddModelError("Menu.Description", "Ce choix de menu existe déja !");
+                    //Faut-il que j'utilise "AdminMessage" ?
                 }
 
                 if(!ModelState.IsValid)
@@ -77,7 +73,7 @@ namespace TP5_ASP.Areas.Admin.Controllers
                 }
             }
 
-            return View("AdminMessage", new AdminMessageVM("L'identifiant de la catégorie est introuvable ou la catégorie est introuvable."));
+            return View("AdminMessage", new AdminMessageVM("L'identifiant de ce choix de menu est introuvable ou ce choix de menu n'existe pas ."));
         }
 
         [HttpPost]
@@ -89,9 +85,9 @@ namespace TP5_ASP.Areas.Admin.Controllers
                 DAL dal = new DAL();
                 Menu? existingMenu = dal.MenuFact.GetByDescription(menuChoice.Description);
 
-                if(existingMenu != null)    //On s'assure que dans la BD il n'existe pas déja un choix de Menu avec la meme description
+                if(existingMenu != null && existingMenu.Id != menuChoice.Id)    //On s'assure que dans la BD il n'existe pas déja un choix de Menu avec la meme description
                 {
-                    ModelState.AddModelError("Menu.Description", "La description de ce choix de Menu existe déjà.");
+                    ModelState.AddModelError("Description", "La description de ce choix de Menu existe déjà.");
                 }
 
                 if (!ModelState.IsValid)
@@ -119,7 +115,7 @@ namespace TP5_ASP.Areas.Admin.Controllers
                 }
             }
 
-            return View("AdminMessage", new AdminMessageVM("L'identifiant de la catégorie est introuvable ou la catégorie est inexistante."));
+            return View("AdminMessage", new AdminMessageVM("L'identifiant de ce choix de menu est introuvable ou ce choix de menu n'existe pas ."));
         }
 
 

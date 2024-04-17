@@ -30,7 +30,7 @@ namespace TP5_ASP.DataAccessLayer.Factories
         /// <returns></returns>
         public Reservation CreateEmpty()
         {
-            return new Reservation(0, string.Empty, string.Empty, 0, DateTime.Now, 0);
+            return new Reservation(0, string.Empty, string.Empty, 1, DateTime.Now, 0);
         }
 
         public List<Reservation> GetAll()
@@ -45,7 +45,9 @@ namespace TP5_ASP.DataAccessLayer.Factories
                mySqlCnn.Open();
 
                MySqlCommand mySqlCmd = mySqlCnn.CreateCommand();
-               mySqlCmd.CommandText = "SELECT * FROM tp5_reservations;";
+
+                //affichez la liste des réservations en ordre inverse de date.
+                mySqlCmd.CommandText = "SELECT * FROM tp5_reservations order by DateReservation desc;";
 
                 mySqlDataReader = mySqlCmd.ExecuteReader();
                 while (mySqlDataReader.Read())

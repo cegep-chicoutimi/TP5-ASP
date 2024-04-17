@@ -9,6 +9,11 @@ $(document).ready(function () {
             at: 'center bottom'
         }
     });
+
+    $("#datepicker").datepicker();
 });
+
+
+
 
 

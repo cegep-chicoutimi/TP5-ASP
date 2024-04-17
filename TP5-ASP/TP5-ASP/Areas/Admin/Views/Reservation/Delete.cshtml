@@ -30,16 +30,17 @@
                 </div>
                 <div class="row details-row">
                     <div class="col-sm-6 label">@Html.DisplayNameFor(model => model.Reservation.MenuChoiceId) : </div>
-                    <div class="col-sm-6">@Model.MenuDescription</div>
+                    <div class="col-sm-6">@Html.DisplayFor(model => model.Menu.Description)</div>
                 </div>
                 <hr />
                 <form asp-action="Delete">
                     <input type="submit" value="Supprimer" class="btn btn-danger" />
                 </form>
             </div>
-            <div class="links">
+        </div>
+
+        <div class="row links">
                 <a asp-action="List">Retour à la liste des reservations</a>
             </div>
-        </div>
     </div>
 </div>

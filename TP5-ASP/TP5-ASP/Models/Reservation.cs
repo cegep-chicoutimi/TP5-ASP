@@ -8,6 +8,7 @@ namespace TP5_ASP.Models
 
         [Display(Name = "Nom")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Le nom est requis.")]
+        [MaxLength(20, ErrorMessage = "Le nom ne doit pas contenir plus de 20 caractères")]
         public string Nom { get; set; } = String.Empty;
 
         [Display(Name = "Courriel")]
@@ -16,6 +17,7 @@ namespace TP5_ASP.Models
 
         [Display(Name = "Nombre")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Vous devez indiquez le nombre de personne.")]
+        [Range(1, int.MaxValue, ErrorMessage = "Le nombre doit être un entier positif")]
         public int NbPersonne { get; set; }
 
         [Display(Name = "Date")]
@@ -25,6 +27,7 @@ namespace TP5_ASP.Models
 
         [Display(Name = "Choix de menu")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Le choix de menu est requis.")]
+        [Range(1, int.MaxValue, ErrorMessage = "Le choix de menu est requis.")]
         public int MenuChoiceId { get; set; }   
 
         // Constructeur vide requis pour la désérialisation
