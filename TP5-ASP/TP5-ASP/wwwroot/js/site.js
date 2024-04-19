@@ -9,10 +9,9 @@ $(document).ready(function () {
             at: 'center bottom'
         }
     });
-});
-
-$(function () {
-    $("#datepicker").datepicker();
+    $("#datepicker").datetpicker({
+        dateFormat: 'YY-MM-DD'
+    });
 });
 
 
