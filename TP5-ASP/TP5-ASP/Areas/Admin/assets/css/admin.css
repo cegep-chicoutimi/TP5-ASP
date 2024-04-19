@@ -2,7 +2,7 @@
     margin-bottom: 2%;
 }
 
-footer .row {
+footer {
     text-align: center;
 }
 
@@ -16,6 +16,42 @@ footer .row {
 }
 
 .label {
-    font-style:bold;
+    font-weight: bold;
 }
-   
+
+td, th {
+    text-align: left;
+}
+
+.action {
+    text-align: right;
+}
+
+.gauche {
+    text-align: left;
+}
+.bold {
+    font-weight: bold;
+}
+
+.menuReservation {
+    font-style: italic;
+    font-weight: bold;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    padding-top: 1%;
+}
+
+.footer-item {
+    margin: 0 20px;
+}
+
+#message {
+    color: red;
+    font-size: x-large;
+    font-weight:bold
+}

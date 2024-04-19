@@ -85,7 +85,8 @@ namespace TP5_ASP.Areas.Admin.Controllers
                 DAL dal = new DAL();
                 Menu? existingMenu = dal.MenuFact.GetByDescription(menuChoice.Description);
 
-                if(existingMenu != null && existingMenu.Id != menuChoice.Id)    //On s'assure que dans la BD il n'existe pas déja un choix de Menu avec la meme description
+                //On s'assure que dans la BD il n'existe pas déja un choix de Menu avec la meme description
+                if (existingMenu != null && existingMenu.Id != menuChoice.Id)
                 {
                     ModelState.AddModelError("Description", "La description de ce choix de Menu existe déjà.");
                 }

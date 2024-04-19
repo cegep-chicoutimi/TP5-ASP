@@ -9,7 +9,9 @@ $(document).ready(function () {
             at: 'center bottom'
         }
     });
+});
 
+$(function () {
     $("#datepicker").datepicker();
 });
 

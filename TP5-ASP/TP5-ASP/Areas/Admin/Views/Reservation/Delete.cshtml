@@ -7,31 +7,30 @@
     <div class="row">
         <div class="offset-md-1 offset-lg-2 col-md-10 col-lg-8">
             <div class="page-title">
-                <i class="fas fa-user"></i> <h2>Supprimer une reservation</h2>
+                 <h2> <i class="fas fa-user"></i> Supprimer une reservation</h2>
             </div>
             <div class="form-section">
                 <h5>Êtes-vous certain de vouloir supprimer cet item ?</h5>
                 <hr />
                 <div class="row details-row">
                     <div class="col-sm-6 label">@Html.DisplayNameFor(model => model.Reservation.DateReservation) : </div>
-                    <div class="col-sm-6">@Html.DisplayFor(model => model.Reservation.DateReservation)</div>
+                    <div class="col-sm-6 gauche">@Html.DisplayFor(model => model.Reservation.DateReservation)</div>
                 </div>
                 <div class="row details-row">
                     <div class="col-sm-6 label">@Html.DisplayNameFor(model => model.Reservation.Nom) : </div>
-                    <div class="col-sm-6">@Html.DisplayFor(model => model.Reservation.Nom)</div>
+                    <div class="col-sm-6 gauche">@Html.DisplayFor(model => model.Reservation.Nom)</div>
                 </div>
                 <div class="row details-row">
                     <div class="col-sm-6 label">@Html.DisplayNameFor(model => model.Reservation.Courriel) : </div>
-                    <div class="col-sm-6">@Html.DisplayFor(model => model.Reservation.Courriel)</div>
+                    <div class="col-sm-6 text-primary gauche">@Html.DisplayFor(model => model.Reservation.Courriel)</div>
                 </div>
                 <div class="row details-row">
                     <div class="col-sm-6 label">@Html.DisplayNameFor(model => model.Reservation.NbPersonne) : </div>
-                    <div class="col-sm-6">@Html.DisplayFor(model => model.Reservation.NbPersonne)</div>
+                    <div class="col-sm-6 gauche">@Html.DisplayFor(model => model.Reservation.NbPersonne)</div>
                 </div>
                 <div class="row details-row">
                     <div class="col-sm-6 label">@Html.DisplayNameFor(model => model.Reservation.MenuChoiceId) : </div>
-                    <div class="col-sm-6">@Html.DisplayFor(model => model.Menu.Description)</div>
-                </div>
+                    <div class="col-sm-6 gauche">@Html.DisplayFor(model => model.MenuDescription)</div>
                 <hr />
                 <form asp-action="Delete">
                     <input type="submit" value="Supprimer" class="btn btn-danger" />

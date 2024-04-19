@@ -31,3 +31,38 @@ body {
 header{
     text-align:center;
 }
+
+td, th {
+    text-align: left;
+}
+#courriel {
+    display:flex;
+    flex-direction:row;
+}
+
+#basic-addon1 {
+    border-right-color: transparent;
+    border-right-width: 0;
+}
+
+.gauche {
+    text-align: left;
+}
+
+#image  {
+    align-content:center;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.details-row {
+    margin-bottom: 6%;
+}
+
+#message {
+    color: red;
+    font-size: x-large;
+    font-weight: bold
+}

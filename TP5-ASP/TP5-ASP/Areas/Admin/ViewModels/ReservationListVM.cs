@@ -35,7 +35,8 @@ namespace TP5_ASP.Areas.Admin.ViewModels
             if(_menuById.ContainsKey(id))
                 return _menuById[id].Description;
 
-            return string.Empty;
+            //Au cas où le choix de menu d'une reservation est supprimé en cours d'utilisation !
+            return "ce choix de menu à été supprimé !";
           }
     }
 }

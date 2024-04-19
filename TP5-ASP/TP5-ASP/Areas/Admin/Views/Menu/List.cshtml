@@ -21,38 +21,21 @@
 
             <table class="table table-sm table-bordered table-striped table-hover">
                 <tr>
-                    <!--
-                    <th>Code</th>
-                    <th>Nom du produit</th>
-                    <th>Catégorie</th>
-                    <th>Quantité en stock</th>
-                    -->
-                    <!-- Permet d'utiliser l'attribut Display(Name="...") de propriété du modèle -->
-                    <!-- Permet de gérer l'affichage du modèle à un seul endroit -->
-
                     <th class="description">@Html.DisplayNameFor(model => model.Menus[0].Description)</th>
-                    <th>Actions</th>
+                    <th class="action">Actions</th>
                 </tr>
                 @if (Model.Menus.Count > 0)
                 {
                     foreach (Menu menu in Model.Menus)
                     {
                         <tr>
-                            <!--
-                            <td>@*product.Code*@</td>
-                            <td>@*product.Name*@</td>
-                            <td>@*product.QuantityInStock*@</td>
-                            -->
-                            <!-- Génère le html selon les attributs de propriété du modèle. Comme par exemple, l'attribut DisplayFormat(...) -->
-                            <!-- Permet de gérer l'affichage du modèle à un seul endroit -->
-
                             <td class="description">@Html.DisplayFor(model => menu.Description)</td>
 
-                            <td>
+                            <td class="action">
                                 <a asp-action="Edit" asp-route-id="@menu.Id">
                                     <span class="edit-icon" data-id="1" title="Modifier">
                                         <i class="fas fa-edit"></i>
-                                </a>  |  
+                                </a>   |   
                                 <a asp-action="Delete" asp-route-id="@menu.Id">
                                     <span class="delete-icon" data-id="1" title="Supprimer">
                                         <i class="fas fa-trash"></i>

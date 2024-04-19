@@ -13,7 +13,7 @@
         <div class="col-12">
             <div class="page-title">
                 <h2>
-                    <i class="fas fa-list"></i>
+                    <i class="fas fa-user"></i>
                     Liste des reservations
                 </h2>
             </div>
@@ -22,10 +22,10 @@
                 <tr>
                     <th>@Html.DisplayNameFor(model => model.Reservations[0].DateReservation)</th>
                     <th>@Html.DisplayNameFor(model => model.Reservations[0].Nom)</th>
-                    <th class="d-none d-sm-none d-md-table-cell">@Html.DisplayNameFor(model => model.Reservations[0].Courriel)</th>
+                    <th class="d-none d-sm-none d-md-none d-lg-table-cell">@Html.DisplayNameFor(model => model.Reservations[0].Courriel)</th>
                     <th>@Html.DisplayNameFor(model => model.Reservations[0].MenuChoiceId)</th>
                     <th>@Html.DisplayNameFor(model => model.Reservations[0].NbPersonne)</th>
-                    <th class="d-none d-xs-none d-sm-table-cell">Actions</th>
+                    <th class="d-none d-xs-none d-sm-none d-md-table-cell action">Actions</th>
                 </tr>
                 @if (Model.Reservations.Count > 0)
                 {
@@ -34,10 +34,10 @@
                         <tr>
                             <td>@Html.DisplayFor(model => reservation.DateReservation)</td>
                             <td>@Html.DisplayFor(model => reservation.Nom)</td>
-                            <td class="d-none d-sm-none d-md-table-cell">@Html.DisplayFor(model => reservation.Courriel)</td>
-                            <td>@Model.GetMenuNameByReservation(reservation.MenuChoiceId)</td>
+                            <td class="d-none d-sm-none d-md-none d-lg-table-cell text-info">@Html.DisplayFor(model => reservation.Courriel)</td>
+                            <td class="menuReservation">@Model.GetMenuNameByReservation(reservation.MenuChoiceId)</td>
                             <td>@Html.DisplayFor(model => reservation.NbPersonne) pers.</td>
-                            <td>
+                            <td class="action">
                                 <a asp-action="Delete" asp-route-id="@reservation.Id">
                                     <span class="delete-icon" data-id="1" title="Supprimer">
                                     <i class="fas fa-trash"></i>

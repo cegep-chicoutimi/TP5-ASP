@@ -45,7 +45,7 @@ namespace TP5_ASP.DataAccessLayer.Factories
                 mySqlCnn.Open();
 
                 MySqlCommand mySqlCmd = mySqlCnn.CreateCommand();
-                mySqlCmd.CommandText = "SELECT * FROM tp5_menuchoices;";
+                mySqlCmd.CommandText = "SELECT * FROM tp5_menuchoices order by Description;";
 
                 mySqlDataReader = mySqlCmd.ExecuteReader();
                 while (mySqlDataReader.Read())

@@ -23,11 +23,12 @@ namespace TP5_ASP.Areas.Admin.Controllers
             {
                 DAL dal = new DAL();
                 Reservation existingReservation = dal.ReservationFact.Get(id);
+                Menu? menuReservation = dal.MenuFact.Get(existingReservation.MenuChoiceId);
 
                 if(existingReservation != null)
                 {
                     ReservationDeleteVM viewModel = new ReservationDeleteVM(
-                        existingReservation, dal.MenuFact.Get(existingReservation.Id));
+                        existingReservation, dal.MenuFact.GetByDescription(menuReservation.Description));
 
                     return View(viewModel);
                 }

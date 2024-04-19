@@ -3,7 +3,7 @@
 namespace TP5_ASP.Areas.Admin.ViewModels
 {
     /* Puisque la reservation à supprimer a déja un choix de menu connu, cette nouvelle ViewModel 
-     * est formée directement des deux entités(La reservation et son choix de menu associé)
+     * est formée directement des deux entités (La reservation et son choix de menu associé)
      */
     public class ReservationDeleteVM
     {
@@ -15,7 +15,7 @@ namespace TP5_ASP.Areas.Admin.ViewModels
         {
             get
             {
-                return Menu?.Description ?? string.Empty;
+                return Menu?.Description ?? "ce choix de menu à été supprimé !";
             }
         }
 

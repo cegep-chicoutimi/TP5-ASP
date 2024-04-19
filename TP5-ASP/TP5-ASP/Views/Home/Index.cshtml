@@ -12,55 +12,61 @@
 }
 
 <div id="product-createedit-page">
-    <div class="row">
+   @* <div class="row">
         <div class="offset-md-1 offset-lg-2 col-md-10 col-lg-8">
             <div class="page-title">
                 <h2>Votre reservation</h2>
             </div>
         </div>
-    </div>
+    </div>*@
     <div class="row">
-        <div class="col-lg-6">
-            <img class="d-none d-xs-none d-sm-table-cell" src="~/img/OIP.jpg" alt="une image de reservation" />
+        <div class="col-lg-6" id="image">
+            <img class="d-none d-xs-none d-sm-none d-md-table-cell" src="~/img/OIP.jpg" alt="une image de reservation" />
         </div>
 
         <div class="form-section col-lg-6">
             <form asp-action="@formAction">
+                <div class="page-title">
+                    <h2>Votre reservation</h2>
+                </div>
                 <input type="hidden" asp-for="Reservation.Id" /> @*Pas besoin de l'afficher il sera passé dans l'url*@
 
                 <div class="form-horizontal">
                     <hr />
                     <div class="form-group row">
                         <label asp-for="Reservation.Nom" class="col-form-label col-md-3"></label>
-                        <div class="col-md-9">
+                        <div class="col-md-9 gauche">
                             <input asp-for="Reservation.Nom" class="form-control" />
                             <span asp-validation-for="Reservation.Nom" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label asp-for="Reservation.Courriel" class="col-form-label col-md-3"></label>
-                        <div class="col-md-9">
-                            <input type="email" asp-for="Reservation.Courriel" class="form-control" />
+                        <div class="col-md-9 gauche">
+                            <div id="courriel">
+                                <span class="input-group-text" id="basic-addon1">@@</span>
+                                <input type="email" asp-for="Reservation.Courriel" class="form-control" />
+                            </div>
                             <span asp-validation-for="Reservation.Courriel" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label asp-for="Reservation.NbPersonne" class="col-form-label col-md-3"></label>
-                        <div class="col-md-9">
-                            <input asp-for="Reservation.NbPersonne" class="form-control" />
+                        <div class="col-md-9 gauche">
+                            <input asp-for="Reservation.NbPersonne" class="form-control" id="spinner" />
                             <span asp-validation-for="Reservation.NbPersonne" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label asp-for="Reservation.DateReservation" class="col-form-label col-md-3"></label>
-                        <div class="col-md-9">
+                        <div class="col-md-9 gauche">
                             <input asp-for="Reservation.DateReservation" class="form-control" id="datepicker" />
                             <span asp-validation-for="Reservation.DateReservation" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label asp-for="Reservation.MenuChoiceId" class="col-form-label col-md-3"></label>
-                        <div class="col-md-9">
+                        <div class="col-md-9 gauche">
                             <select asp-for="Reservation.MenuChoiceId" asp-items="@(new SelectList(Model.Menus, "Id", "Description"))" class="form-control">
                                 <option value="0"></option>
                             </select>

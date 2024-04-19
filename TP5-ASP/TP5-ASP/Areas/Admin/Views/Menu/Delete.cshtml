@@ -3,7 +3,7 @@
     ViewData["Title"] = "Supprimer un choix de menu";
 }
 
-<div id="product-delete-page" class="container-fluid">
+<div id="product-delete-page" class="container">
 
     <div class="row">
         <div class="offset-md-1 offset-lg-2 col-md-10 col-lg-8">
@@ -22,8 +22,8 @@
             <div class="form-section">
                 <hr />
                 <div class="row details-row">
-                    <div class="col-sm-6">@Html.DisplayNameFor(model => model.Description) : </div>
-                    <div class="col-sm-6">@Html.DisplayFor(model => model.Description)</div>
+                    <div class="col-sm-6 bold">@Html.DisplayNameFor(model => model.Description) : </div>
+                    <div class="col-sm-6 gauche">@Html.DisplayFor(model => model.Description)</div>
                 </div>
                 <hr />
                 <form asp-action="Delete">
